@@ -1,59 +1,41 @@
-# PRODIGY-ML_02
-K-Means Clustering: Customer Segmentation
-
-Overview
+# K-Means Clustering: Customer Segmentation
 
 This project applies K-Means Clustering to segment customers based on two key metrics: Annual Income and Spending Score. The goal is to group customers into distinct clusters that help identify patterns and behaviors, such as high-spending groups or low-income segments. The insights derived from this clustering can be used to enhance business strategies, optimize customer targeting, and personalize marketing campaigns.
 
-Methodology
+## Methodology
 
-1. Data Loading and Preparation
+1. **Data Loading and Preparation**
+    * Import and inspect the dataset, `Mall_Customers.csv`, for consistency.
+    * Check and handle missing values if necessary.
+    * Rename relevant columns (`Annual Income (k$)` and `Spending Score (1-100)`) for clarity and extract them for analysis.
 
-The dataset, Mall_Customers.csv, is imported and inspected for consistency.
+2. **Data Standardization**
+    * Standardize features using `StandardScaler` to remove biases caused by differing scales of variables.
 
-Missing values are checked and handled if necessary.
+3. **Optimal Cluster Identification**
+    * Use the Elbow Method to determine the ideal number of clusters (k).
+    * Generate a plot of inertia values for cluster counts ranging from 1 to 10.
+    * Choose the optimal k based on the "elbow point" where the rate of inertia reduction slows down.
 
-Relevant columns (Annual Income (k$) and Spending Score (1-100)) are renamed for clarity and extracted for analysis.
+4. **Clustering with K-Means**
+    * Apply K-Means clustering using the optimal k (e.g., k=5) to segment the customers.
+    * Assign a cluster label to each customer based on their annual income and spending score.
 
-2. Data Standardization
+5. **Visualization of Results**
+    * Create a scatter plot to visualize the clusters with each point representing a customer.
+    * Color points by cluster and annotate with unique identifiers (customer indices) for better understanding.
+    * The plot clearly shows the segregation of customers into distinct groups based on their spending behavior and income levels.
 
-Features are standardized using StandardScaler to remove biases caused by differing scales of variables.
+6. **Saving Clustered Data**
+    * Save the final dataset, including cluster labels, to `Customer_Clusters_Annual_Income_Spending.csv` for further analysis.
 
-3. Optimal Cluster Identification
+## Key Insights
 
-The Elbow Method is used to determine the ideal number of clusters (k).
+This approach provides a clear grouping of customers, enabling businesses to understand different spending behaviors. The clusters can be used for targeted marketing, loyalty programs, and resource optimization.
 
-A plot of inertia values for cluster counts ranging from 1 to 10 is generated, and the optimal k is chosen based on the "elbow point" where the rate of inertia reduction slows down.
+## Technologies Used
 
-4. Clustering with K-Means
+* Python
+* Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
 
-Using the optimal k (e.g., k=5), K-Means clustering is applied to segment the customers.
-
-Each customer is assigned a cluster label based on their annual income and spending score.
-
-5. Visualization of Results
-
-A scatter plot is created to visualize the clusters with each point representing a customer.
-
-Points are colored by cluster and annotated with unique identifiers (customer indices) for better understanding.
-
-The plot clearly shows the segregation of customers into distinct groups based on their spending behavior and income levels.
-
-6. Saving Clustered Data
-
-The final dataset, including cluster labels, is saved to Customer_Clusters_Annual_Income_Spending.csv for further analysis.
-
-Key Insights
-
-This approach provides a clear grouping of customers, enabling businesses to understand different spending behaviors.
-
-The clusters can be used for targeted marketing, loyalty programs, and resource optimization.
-
-Technologies Used
-
-Python
-
-Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-
-Feel free to use this repository for your own clustering tasks and adapt it for your datasets and business needs!
-
+**Feel free to use this repository for your own clustering tasks and adapt it for your datasets and business needs!**
